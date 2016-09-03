@@ -4,6 +4,8 @@ import UIKit
 class EditorViewController: UIViewController {
 
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var editTextView: UITextView!
+    
     private var originBottomConstraintValue: CGFloat?
     
     override func viewDidLoad() {
@@ -63,5 +65,14 @@ class EditorViewController: UIViewController {
             self.view.layoutIfNeeded()
         })
     }
+    
+    @IBAction func saveItemClicked(){
+        let URLString: String = "http://192.168.10.16:3001/memos"
+        let memoString: String = editTextView.text
+        ApiClientManager.initClient(URLString).executePost(memoString, callback: { statusCode in
+            self.navigationController?.popViewControllerAnimated(true)
+        })
+    }
+
 
 }

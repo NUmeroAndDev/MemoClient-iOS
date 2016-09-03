@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sg3-ng-a2i">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -121,10 +120,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1j5-xy-87h">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hiP-Pq-TjD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hiP-Pq-TjD">
+                            <connections>
+                                <action selector="saveItemClicked" destination="DAx-uT-DOL" id="kBS-3p-Se1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomConstraint" destination="w5C-VX-5Na" id="WAX-Dn-rR8"/>
+                        <outlet property="editTextView" destination="qWO-b5-TMy" id="vOv-td-Dyc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xzd-o0-w8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
