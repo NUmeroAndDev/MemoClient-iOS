@@ -74,7 +74,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MemoClient" id="m1I-cV-kcA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tol-Re-Yzl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tol-Re-Yzl">
+                            <connections>
+                                <action selector="reloadItemClicked" destination="8xZ-4l-Y6A" id="NaC-8g-Kjh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="memoTableView" destination="bhb-lv-UVk" id="j11-SK-p6P"/>
