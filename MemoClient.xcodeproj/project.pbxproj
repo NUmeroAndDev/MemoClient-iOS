@@ -16,6 +16,7 @@
 		B0680DB91D7A9C1F0014F30A /* ApiClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DB81D7A9C1F0014F30A /* ApiClientManager.swift */; };
 		B0680DBB1D7A9C950014F30A /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DBA1D7A9C950014F30A /* Memo.swift */; };
 		B0680DBF1D7A9F460014F30A /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DBE1D7A9F460014F30A /* MemoCell.swift */; };
+		B0680DC11D7AA3E20014F30A /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DC01D7AA3E20014F30A /* EditorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		B0680DB81D7A9C1F0014F30A /* ApiClientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientManager.swift; sourceTree = "<group>"; };
 		B0680DBA1D7A9C950014F30A /* Memo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		B0680DBE1D7A9F460014F30A /* MemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		B0680DC01D7AA3E20014F30A /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		E6CD343F28570607E49F5469 /* Pods-MemoClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemoClient/Pods-MemoClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				B0680DA71D7A976A0014F30A /* MemoListViewController.swift */,
+				B0680DC01D7AA3E20014F30A /* EditorViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0680DA81D7A976A0014F30A /* MemoListViewController.swift in Sources */,
+				B0680DC11D7AA3E20014F30A /* EditorViewController.swift in Sources */,
 				B0680DBF1D7A9F460014F30A /* MemoCell.swift in Sources */,
 				B0680DA61D7A976A0014F30A /* AppDelegate.swift in Sources */,
 				B0680DB91D7A9C1F0014F30A /* ApiClientManager.swift in Sources */,
