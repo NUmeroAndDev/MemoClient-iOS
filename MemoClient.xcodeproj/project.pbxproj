@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		0F60E8983B3B837318E426A9 /* Pods_MemoClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B0A48F545863F81DB83DEE /* Pods_MemoClient.framework */; };
 		B0680DA61D7A976A0014F30A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DA51D7A976A0014F30A /* AppDelegate.swift */; };
-		B0680DA81D7A976A0014F30A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DA71D7A976A0014F30A /* ViewController.swift */; };
+		B0680DA81D7A976A0014F30A /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DA71D7A976A0014F30A /* MemoListViewController.swift */; };
 		B0680DAB1D7A976A0014F30A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0680DA91D7A976A0014F30A /* Main.storyboard */; };
 		B0680DAD1D7A976A0014F30A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0680DAC1D7A976A0014F30A /* Assets.xcassets */; };
 		B0680DB01D7A976A0014F30A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0680DAE1D7A976A0014F30A /* LaunchScreen.storyboard */; };
+		B0680DB91D7A9C1F0014F30A /* ApiClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DB81D7A9C1F0014F30A /* ApiClientManager.swift */; };
+		B0680DBB1D7A9C950014F30A /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DBA1D7A9C950014F30A /* Memo.swift */; };
+		B0680DBF1D7A9F460014F30A /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0680DBE1D7A9F460014F30A /* MemoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +23,14 @@
 		34B0A48F545863F81DB83DEE /* Pods_MemoClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0680DA21D7A97690014F30A /* MemoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0680DA51D7A976A0014F30A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B0680DA71D7A976A0014F30A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B0680DA71D7A976A0014F30A /* MemoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
 		B0680DAA1D7A976A0014F30A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0680DAC1D7A976A0014F30A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0680DAF1D7A976A0014F30A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0680DB11D7A976A0014F30A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0680DB81D7A9C1F0014F30A /* ApiClientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientManager.swift; sourceTree = "<group>"; };
+		B0680DBA1D7A9C950014F30A /* Memo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		B0680DBE1D7A9F460014F30A /* MemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		E6CD343F28570607E49F5469 /* Pods-MemoClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemoClient/Pods-MemoClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,14 +84,41 @@
 		B0680DA41D7A976A0014F30A /* MemoClient */ = {
 			isa = PBXGroup;
 			children = (
+				B0680DBD1D7A9F3A0014F30A /* Cells */,
+				B0680DBC1D7A9D050014F30A /* ViewControllers */,
+				B0680DB71D7A9BBE0014F30A /* MemoApiClient */,
 				B0680DA51D7A976A0014F30A /* AppDelegate.swift */,
-				B0680DA71D7A976A0014F30A /* ViewController.swift */,
 				B0680DA91D7A976A0014F30A /* Main.storyboard */,
 				B0680DAC1D7A976A0014F30A /* Assets.xcassets */,
 				B0680DAE1D7A976A0014F30A /* LaunchScreen.storyboard */,
 				B0680DB11D7A976A0014F30A /* Info.plist */,
 			);
 			path = MemoClient;
+			sourceTree = "<group>";
+		};
+		B0680DB71D7A9BBE0014F30A /* MemoApiClient */ = {
+			isa = PBXGroup;
+			children = (
+				B0680DB81D7A9C1F0014F30A /* ApiClientManager.swift */,
+				B0680DBA1D7A9C950014F30A /* Memo.swift */,
+			);
+			name = MemoApiClient;
+			sourceTree = "<group>";
+		};
+		B0680DBC1D7A9D050014F30A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B0680DA71D7A976A0014F30A /* MemoListViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B0680DBD1D7A9F3A0014F30A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B0680DBE1D7A9F460014F30A /* MemoCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +244,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0680DA81D7A976A0014F30A /* ViewController.swift in Sources */,
+				B0680DA81D7A976A0014F30A /* MemoListViewController.swift in Sources */,
+				B0680DBF1D7A9F460014F30A /* MemoCell.swift in Sources */,
 				B0680DA61D7A976A0014F30A /* AppDelegate.swift in Sources */,
+				B0680DB91D7A9C1F0014F30A /* ApiClientManager.swift in Sources */,
+				B0680DBB1D7A9C950014F30A /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +367,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MemoClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numero.MemoClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,6 +383,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MemoClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numero.MemoClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";

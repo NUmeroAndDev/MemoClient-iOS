@@ -1,25 +1,104 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sg3-ng-a2i">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--MemoClient-->
+        <scene sceneID="rbO-TS-HX6">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8xZ-4l-Y6A" customClass="MemoListViewController" customModule="MemoClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="1dg-7E-Hcs"/>
+                        <viewControllerLayoutGuide type="bottom" id="JxL-QI-Mmg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="gXu-4e-gCf">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-lv-UVk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memoCell" id="jrM-Js-7gI" customClass="MemoCell" customModule="MemoClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jrM-Js-7gI" id="a8y-kR-Xvk">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJX-WG-8KT">
+                                                    <rect key="frame" x="8" y="8" width="584" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BJX-WG-8KT" firstAttribute="trailing" secondItem="a8y-kR-Xvk" secondAttribute="trailingMargin" id="EaL-aR-RYG"/>
+                                                <constraint firstItem="BJX-WG-8KT" firstAttribute="bottom" secondItem="a8y-kR-Xvk" secondAttribute="bottomMargin" id="XIN-Hw-3pm"/>
+                                                <constraint firstItem="BJX-WG-8KT" firstAttribute="top" secondItem="a8y-kR-Xvk" secondAttribute="topMargin" id="jJH-ud-XzU"/>
+                                                <constraint firstItem="BJX-WG-8KT" firstAttribute="leading" secondItem="a8y-kR-Xvk" secondAttribute="leadingMargin" id="jXC-sE-EX8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="memoTitleLabel" destination="BJX-WG-8KT" id="EKM-yo-sr8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8xZ-4l-Y6A" id="iAo-D8-wln"/>
+                                    <outlet property="delegate" destination="8xZ-4l-Y6A" id="pTz-4Z-Os0"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlv-a3-KjG">
+                                <rect key="frame" x="0.0" y="492" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="huB-x4-Ie4"/>
+                                    <barButtonItem systemItem="compose" id="514-3i-SIG"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tlv-a3-KjG" firstAttribute="leading" secondItem="gXu-4e-gCf" secondAttribute="leading" id="As4-ci-NvV"/>
+                            <constraint firstItem="Tlv-a3-KjG" firstAttribute="top" secondItem="bhb-lv-UVk" secondAttribute="bottom" id="D1M-LM-QO2"/>
+                            <constraint firstItem="Tlv-a3-KjG" firstAttribute="bottom" secondItem="JxL-QI-Mmg" secondAttribute="top" id="Uko-ne-cOP"/>
+                            <constraint firstItem="bhb-lv-UVk" firstAttribute="top" secondItem="1dg-7E-Hcs" secondAttribute="bottom" id="UlG-jR-3kv"/>
+                            <constraint firstItem="Tlv-a3-KjG" firstAttribute="trailing" secondItem="bhb-lv-UVk" secondAttribute="trailing" id="VhD-x9-m9U"/>
+                            <constraint firstAttribute="trailing" secondItem="Tlv-a3-KjG" secondAttribute="trailing" id="iFd-tR-UWV"/>
+                            <constraint firstItem="Tlv-a3-KjG" firstAttribute="top" secondItem="bhb-lv-UVk" secondAttribute="bottom" id="j2Z-GS-C3G"/>
+                            <constraint firstItem="Tlv-a3-KjG" firstAttribute="leading" secondItem="bhb-lv-UVk" secondAttribute="leading" id="kqe-HX-76M"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="MemoClient" id="m1I-cV-kcA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tol-Re-Yzl"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="memoTableView" destination="bhb-lv-UVk" id="j11-SK-p6P"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NMX-G0-2dL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-68" y="584"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Ve-aN-qRI">
+            <objects>
+                <navigationController id="sg3-ng-a2i" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="cA5-iV-4mB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8xZ-4l-Y6A" kind="relationship" relationship="rootViewController" id="SjN-Wi-cHr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FMW-S4-Hq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-847" y="584"/>
         </scene>
     </scenes>
 </document>
