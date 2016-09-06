@@ -7,6 +7,7 @@ class MemoListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var memoTableView: UITableView!
     
     private var memos: [Memo] = [Memo]()
+    private var deleteIndexPath: NSIndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,36 @@ class MemoListViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == .Delete) {
+            deleteIndexPath = indexPath
+            showAlert()
+        }
+    }
+    
+    func showAlert() {
+        let alert: UIAlertController = UIAlertController(title: "Delete", message: "Are you sure you want to delete?", preferredStyle: .Alert)
+        
+        let DeleteAction: UIAlertAction = UIAlertAction(title: "Delete", style: .Destructive, handler: executeDelete)
+        let CancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func executeDelete(alertAction: UIAlertAction!) {
+        ApiClientManager.initClient(memos[(deleteIndexPath?.row)!].URLString).executeDelete({ data in
+            self.memoTableView.beginUpdates()
+            self.memos.removeAtIndex(self.deleteIndexPath!.row)
+            self.memoTableView.deleteRowsAtIndexPaths([self.deleteIndexPath!], withRowAnimation: .Automatic)
+            
+            self.deleteIndexPath = nil
+            
+            self.memoTableView.endUpdates()
+        })
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,8 +73,8 @@ class MemoListViewController: UIViewController, UITableViewDelegate, UITableView
         let URLString: String = "http://192.168.10.16:3001/memos.json"
         memos.removeAll()
         ApiClientManager.initClient(URLString).executeGet({ data in
-            let json = JSON(data)
             self.dispatch_async_global{
+                let json = JSON(data)
                 let jsonArray = json.arrayObject!
                 for jsonObject in jsonArray {
                     let id = jsonObject["id"] as? Int
